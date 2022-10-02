@@ -12,6 +12,7 @@ TagManager:
   - Cheese
   - Strings
   - FinishLine
+  - Enemy
   layers:
   - Default
   - TransparentFX

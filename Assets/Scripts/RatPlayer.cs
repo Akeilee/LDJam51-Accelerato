@@ -226,7 +226,7 @@ public class RatPlayer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Crumble"))
+        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Crumble") || collision.gameObject.CompareTag("Untagged"))
         {
             if (collision.gameObject.CompareTag("Crumble") && !isOnCrumble)
             {
@@ -283,7 +283,7 @@ public class RatPlayer : MonoBehaviour
             isGrounded = true;
         }
 
-        else if (collision.gameObject.CompareTag("Killzone"))
+        else if (collision.gameObject.CompareTag("Killzone") || collision.gameObject.CompareTag("Enemy"))
         {
             ///////////// Lose screen
             ///
@@ -310,7 +310,7 @@ public class RatPlayer : MonoBehaviour
         {
             isGrounded = false;
 
-            if(collision.gameObject.CompareTag("Floor"))
+            if (collision.gameObject.CompareTag("Floor"))
                 isOnCrumble = false;
         }
         else if (collision.gameObject.CompareTag("Strings"))
