@@ -1,0 +1,61 @@
+briehoven - character name, for the character select screen (if we get round to doing one)
+
+cheese  - the sound effect whenever the rat touches/pickups a piece of cheese in a level. 
+sound can be synced with the instant collision happens, and it dissapears.
+
+crumble 1 - the sound when a rat first lands/walks onto a crumble block. (when contact is first made with them,
+I assume they will change visuals from crumble1 to crumble2?)
+
+crumble 2 - the crumble block changing from crumble2 to crumble3
+
+crumble 3 - to play once the crumble block has either vanished/or fallen down to the ground/however
+you wanted to have them behave. having them fall would be more forgiving for the player but
+harder to prgram presumably. because then youd need to deciede to have them go down fully offscreen
+or land on some surface at the bottom. = thats a *Jane* decision!
+
+cymbal - during gameplay, whenever this key is hit (and it is NOT part of the active controls at that time) this sound will play on keys Q U G C
+
+drum - whenevr something touches the drum graphic in level. so can be a thin/thick drumstick hazard hitting it. or the character jumping onto it.
+
+duff note - youve two options here on how to implement. Whenever a duff note enemy spawns, this sound could play.
+Or the duff note simply being on screen, could repeat this noise on a timed interval
+e.g every 2, or 3 seconds. 
+
+jumping - sound plays whenever the character jumps
+
+lose  - sound plays whenever character dies. so from touching a duff note, landing on spikes,
+falling down a hole, getting crushed by a block etc. 
+
+menu 1 - happiest menu sound, so save for very positive menu selections, such as.
+hitting Play, selecting a character, and hitting the button to confirm the high score at the end.
+
+menu 2 - moderate menu noise. so for selecting, instructions, credits, flipping between pages, etc
+
+menu 3 - this could be for hitting the `back` button on menus
+
+mouseart - character name, for the character select screen (if we get round to doing one)
+
+rat hurt - whenever the character dies
+
+rat land - noise made whenever rat lands on the ground
+
+ratmininoff - character name, for the character select screen (if we get round to doing one)
+
+recorder - during gameplay, whenever this key is hit (and it is NOT part of the active controls at that time) this sound will play on keys T P K S B
+
+sheet music - whenever a sheet music pickup is touched. behave in the same way as the aforementioned cheese pickup
+
+string grind - whenever the strings graphic changes to its rainbow state, have this sound play. 
+and stop once the player gets off it
+
+thick drumstick - whenever the big white drumstick hits the ground (frame 4) have this sound play.
+
+thin drumstick - whenever that thin wooden drumstick hits the ground on frame 4, have this sound play
+
+triangle - during gameplay, whenever this key is hit (and it is NOT part of the active controls at that time) this sound will play on keys E O F H X M 
+
+trombone - during gameplay, whenever this key is hit (and it is NOT part of the active controls at that time) this sound will play on keys W I D J Z 
+
+violin - during gameplay, whenever this key is hit (and it is NOT part of the active controls at that time) this sound will play on keys R Y A L V N 
+
+win - whenever the rat makes it to the "end" rat hole at the end, have this play.
