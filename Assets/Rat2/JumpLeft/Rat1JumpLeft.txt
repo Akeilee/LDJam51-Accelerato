@@ -1,0 +1,2 @@
+'Rat1_Jump_Left_Frame1' and ''Rat1_Jump_Left_Frame6' are just the Rat1_Static_Left PNG. 
+I wasn't sure if you'd need unique named ones for the jump animation so I added them here. 

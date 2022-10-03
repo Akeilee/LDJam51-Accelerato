@@ -1,0 +1,3 @@
+'Rat1_Grind_Left_Frame1' is the same as the 'Rat1_Jump_Left_Frame4' PNG in the Jump Left folder.
+I wasn't sure if you needed it to be part of the grind animation.
+If they're not needed 'Rat1_Grind_Left_Frame2', 'Rat1_Grind_Left_Frame3' & 'Rat1_Grind_Left_Frame4' can be looped for as long as the rail lasts. 
