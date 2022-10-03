@@ -43,6 +43,7 @@ public class RatPlayer : MonoBehaviour
     public float stringsJumpSpeed;
     public bool isGrounded = true;
     public bool isJumping = false;
+    public bool isOnCrumble = false;
     private float startingSpeed;
     private float startingJumpSpeed;
 
@@ -104,6 +105,11 @@ public class RatPlayer : MonoBehaviour
 
         MovementHorizontal(left, right);
         MovementJump(jump);
+
+        if (isJumping)
+            animator.SetBool("isJumping", true);
+        else if (!isJumping)
+            animator.SetBool("isJumping", false);
     }
 
     private void UpdatePoints(int point)
@@ -245,11 +251,11 @@ public class RatPlayer : MonoBehaviour
             isJumping = true;
 
             rigidBody.AddForce(new Vector2(rigidBody.velocity.x, jumpSpeed * speed));
+            animator.SetBool("isJumping", true);
         }
     }
 
 
-    public bool isOnCrumble = false;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -261,7 +267,7 @@ public class RatPlayer : MonoBehaviour
                 collisionAudioSource.Play();
                 isOnCrumble = true;
             }
-            else if (isJumping)
+            if (isJumping)
             {
                 characterAudioSource.clip = ratLandSFX;
                 characterAudioSource.Play();
