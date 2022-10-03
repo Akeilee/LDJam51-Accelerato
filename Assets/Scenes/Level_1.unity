@@ -76107,6 +76107,7 @@ MonoBehaviour:
   ratJumpSFX: {fileID: 8300000, guid: c4587fc9c931242429a70b6e3151541c, type: 3}
   ratLandSFX: {fileID: 8300000, guid: 9e74e9151f9ffa745966cae1403c1210, type: 3}
   ratHurtSFX: {fileID: 8300000, guid: 7d65bc38830eda24496aecf6f1507061, type: 3}
+  ratLoseSFX: {fileID: 8300000, guid: a1810b57f09a79343a9109cd272f499c, type: 3}
   speed: 5
   jumpSpeed: 120
   drumJumpSpeed: 170
@@ -76123,7 +76124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672963764}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.4, y: 0.32, z: 0}
+  m_LocalPosition: {x: -6.3, y: 0.32, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

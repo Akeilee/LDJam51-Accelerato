@@ -33,6 +33,7 @@ public class RatPlayer : MonoBehaviour
     [SerializeField] private AudioClip ratJumpSFX;
     [SerializeField] private AudioClip ratLandSFX;
     [SerializeField] private AudioClip ratHurtSFX;
+    [SerializeField] private AudioClip ratLoseSFX;
     
 
     [Header("Movement")]
@@ -320,6 +321,7 @@ public class RatPlayer : MonoBehaviour
             speed += stringsSpeed;
             jumpSpeed = stringsJumpSpeed;
             isGrounded = true;
+            animator.SetBool("isOnStrings", true);
         }
 
         else if (collision.gameObject.CompareTag("Killzone") || collision.gameObject.CompareTag("Enemy"))
@@ -331,9 +333,11 @@ public class RatPlayer : MonoBehaviour
 
             loseScreen.SetActive(true);
 
+            BGMAudioSource.Stop();
             characterAudioSource.clip = ratHurtSFX;
             characterAudioSource.Play();
-            collisionAudioSource.Stop();
+            collisionAudioSource.clip = ratLoseSFX;
+            collisionAudioSource.Play();
         }
 
         else if (collision.gameObject.CompareTag("FinishLine")) 
@@ -372,6 +376,7 @@ public class RatPlayer : MonoBehaviour
             speed = startingSpeed;
             jumpSpeed = startingJumpSpeed;
             isGrounded = false;
+            animator.SetBool("isOnStrings", false);
         }
     }
 
