@@ -76178,6 +76178,88 @@ MonoBehaviour:
   triangleKeys: 650000006f0000006600000068000000780000006d000000
   recorderKeys: 74000000700000006b0000007300000062000000
   cymbalKeys: 71000000750000006700000063000000
+  musiciansNeutral:
+  - {fileID: 21300000, guid: 7bd26466271576e4b9d7b7162ea1406d, type: 3}
+  - {fileID: 21300000, guid: 228c7af421423fe4d92fa6e9984cc8e8, type: 3}
+  - {fileID: 21300000, guid: 91e3b340d74e89747820ed409c190a08, type: 3}
+  - {fileID: 21300000, guid: b8979d23b2366d54ebaaa78d9ba47aa6, type: 3}
+  - {fileID: 21300000, guid: 1a3674a486a56aa4d8ac22b5a89db8cf, type: 3}
+  - {fileID: 21300000, guid: 08f6780632ef1f341a2363d7a6a6b2a2, type: 3}
+  - {fileID: 21300000, guid: 60e41c938bcd41d4a9f8cb5741b4d81e, type: 3}
+  - {fileID: 21300000, guid: f649040e092ac0f488b3dee8a470c00c, type: 3}
+  - {fileID: 21300000, guid: 242f8efd1e650c948a023a7c5ff1cde7, type: 3}
+  - {fileID: 21300000, guid: 40612d3ebf0f49043adb1f74a71b8562, type: 3}
+  - {fileID: 21300000, guid: 7226c4d9ebed38e40b8c0228c0f3768d, type: 3}
+  - {fileID: 21300000, guid: 872d08f27f15fc0449b22e22306671f5, type: 3}
+  - {fileID: 21300000, guid: 2fe460953dfc6d048946eed0dafde915, type: 3}
+  - {fileID: 21300000, guid: 7d9f893363a48d74d822fb17c7db1c9a, type: 3}
+  - {fileID: 21300000, guid: 12bf8effc1b87b445bd297305f0e099a, type: 3}
+  - {fileID: 21300000, guid: 9b612015088d9a743a6c4b2b06fb73a8, type: 3}
+  - {fileID: 21300000, guid: 2cbcd2e6c9ae05f439e649f1c7ce7837, type: 3}
+  - {fileID: 21300000, guid: a567ea38d6504904eb773c6403955ecf, type: 3}
+  - {fileID: 21300000, guid: 3ff4d0239523d874f9f8b64cd035d4b8, type: 3}
+  - {fileID: 21300000, guid: 1dbba604ecc4fd741a4a95fffdd30836, type: 3}
+  - {fileID: 21300000, guid: f0426be235b4dd64a86fd68d78fb4b48, type: 3}
+  - {fileID: 21300000, guid: 79c03151bbfd53640b7e4d2041f30647, type: 3}
+  - {fileID: 21300000, guid: 26852133693663b42a4ea940fce0e6c3, type: 3}
+  - {fileID: 21300000, guid: 35e48969c74d17f47983b55325ca431e, type: 3}
+  - {fileID: 21300000, guid: f437f0289497cb74ca00b858596ba6e1, type: 3}
+  - {fileID: 21300000, guid: 9b95ef16ae3f8494384608397c9f7120, type: 3}
+  musiciansError:
+  - {fileID: 21300000, guid: ef1bb9ad68f9edf4c9b03ea6e8143581, type: 3}
+  - {fileID: 21300000, guid: aec034cd2d6584e4eab31fc50ec4796a, type: 3}
+  - {fileID: 21300000, guid: 03e9d255814cf2a43910d5ab7a36c8fe, type: 3}
+  - {fileID: 21300000, guid: 1d7040a69bcbc8a45b5ba06e695fd8f0, type: 3}
+  - {fileID: 21300000, guid: ce740211a8c23cd449a72305a9660f21, type: 3}
+  - {fileID: 21300000, guid: 975937fb1c82e3e43bf3d9469b55ec4a, type: 3}
+  - {fileID: 21300000, guid: f55dbcce03a81234788eddbb57c7df31, type: 3}
+  - {fileID: 21300000, guid: 008f45b7fa67509449100b8e6927654d, type: 3}
+  - {fileID: 21300000, guid: 5136fbb383768bb4ab522a1b25023025, type: 3}
+  - {fileID: 21300000, guid: 9e3705039f5bf1846a4bbeb5fe0d84de, type: 3}
+  - {fileID: 21300000, guid: 3b27cf245ec97874bb40bf154d9d16c0, type: 3}
+  - {fileID: 21300000, guid: e195b934d4fbe1c4cbffc11cc516937f, type: 3}
+  - {fileID: 21300000, guid: 8d15e2d3f90e05c449b62646c7d148ca, type: 3}
+  - {fileID: 21300000, guid: 79511d30d0e57bb42a9a6bf007ffd329, type: 3}
+  - {fileID: 21300000, guid: 9dacf02927499204d8c61e428cdc3e8e, type: 3}
+  - {fileID: 21300000, guid: dca1462c6ba617e43ae8de8ad4b1ea1c, type: 3}
+  - {fileID: 21300000, guid: 8428f595c7fd2a34b8c110ab5ab9e4e0, type: 3}
+  - {fileID: 21300000, guid: 3237c98f38556984fa18ee97a641e6a4, type: 3}
+  - {fileID: 21300000, guid: 532badca49ac8ef4e9e5b8706d85a421, type: 3}
+  - {fileID: 21300000, guid: 41db08a86eb4d6c44a9df0bca645d160, type: 3}
+  - {fileID: 21300000, guid: d5086aefdb40afd46885f829be655071, type: 3}
+  - {fileID: 21300000, guid: 1a420518784bfd6489cddd68928d9aeb, type: 3}
+  - {fileID: 21300000, guid: 6960332e57adf0940ab04eba6c02f234, type: 3}
+  - {fileID: 21300000, guid: b9ffc26a77dbaaa41af4beedfce3869b, type: 3}
+  - {fileID: 21300000, guid: da207004c2e74bf49829ee549ce60d34, type: 3}
+  - {fileID: 21300000, guid: 7b7c34fe054d66449808cdfef53f74a8, type: 3}
+  musicianSpriteRenders:
+  - {fileID: 393558036}
+  - {fileID: 1437672855}
+  - {fileID: 419205415}
+  - {fileID: 1356633626}
+  - {fileID: 1780514048}
+  - {fileID: 1678980042}
+  - {fileID: 1587253941}
+  - {fileID: 1454533191}
+  - {fileID: 5286439}
+  - {fileID: 1315914386}
+  - {fileID: 49744034}
+  - {fileID: 2130631653}
+  - {fileID: 526745645}
+  - {fileID: 604869443}
+  - {fileID: 851343695}
+  - {fileID: 418215446}
+  - {fileID: 5269143}
+  - {fileID: 1093978448}
+  - {fileID: 360267270}
+  - {fileID: 1144013425}
+  - {fileID: 1990959766}
+  - {fileID: 732641445}
+  - {fileID: 1186297624}
+  - {fileID: 1352896226}
+  - {fileID: 92616581}
+  - {fileID: 207787246}
+  keyboardKeys: 6100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000760000007700000078000000790000007a000000
 --- !u!212 &1672963770
 SpriteRenderer:
   m_ObjectHideFlags: 0

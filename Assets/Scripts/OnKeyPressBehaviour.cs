@@ -22,6 +22,13 @@ public class OnKeyPressBehaviour : MonoBehaviour
 
     private Dictionary<AudioClip, List<KeyCode>> keyCodes = new Dictionary<AudioClip, List<KeyCode>>();
 
+    [Header("Musicians Change")]
+    [SerializeField] private Sprite[] musiciansNeutral;
+    [SerializeField] private Sprite[] musiciansError;
+    [SerializeField] private SpriteRenderer[] musicianSpriteRenders;
+    [SerializeField] private KeyCode[] keyboardKeys;
+
+
     private void Start()
     {
         keyCodes.Add(violinSFX, violinKeys);
@@ -42,6 +49,7 @@ public class OnKeyPressBehaviour : MonoBehaviour
                 {
                     if (keyPressed.keyCode == value)
                     {
+                        //if wrong key press
                         if (keyPressed.keyCode != ratPlayer.GetLeftKey() &&
                             keyPressed.keyCode != ratPlayer.GetRightKey() &&
                             keyPressed.keyCode != ratPlayer.GetJumpKey())
@@ -49,11 +57,26 @@ public class OnKeyPressBehaviour : MonoBehaviour
                             audioSource.clip = key.Key;
                             audioSource.Play();
 
+                            for (int i = 0; i < keyboardKeys.Length; i++) 
+                            {
+                                if (keyPressed.keyCode == keyboardKeys[i]) 
+                                {
+                                    musicianSpriteRenders[i].sprite = musiciansError[i];
+                                    StartCoroutine(SwitchBackSprite(i));
+                                    break;
+                                }
+                            }
                             break;
                         }
                     }
                 }
             }
         }
+    }
+
+    IEnumerator SwitchBackSprite(int index) 
+    {
+        yield return new WaitForSeconds(0.5f);
+        musicianSpriteRenders[index].sprite = musiciansNeutral[index];
     }
 }
