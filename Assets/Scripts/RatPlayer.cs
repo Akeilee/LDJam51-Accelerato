@@ -113,7 +113,7 @@ public class RatPlayer : MonoBehaviour
         else if (!isJumping)
             animator.SetBool("isJumping", false);
 
-        if (Input.GetKey(KeyCode.Escape)) 
+        if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.F1)) 
         {
             OpenPauseMenu();
         }
