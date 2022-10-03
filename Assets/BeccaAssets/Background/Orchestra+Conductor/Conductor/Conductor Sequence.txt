@@ -1,0 +1,9 @@
+Suggested animation sequence 
+-Conductor1.png
+-Conductor2.png
+-Conductor1.png
+-Conductor3.png
+-Conductor4.png
+-repeat
+
+Conductor files should be placed in front of Orchestra, low enough so as not to obstruct them from the player.

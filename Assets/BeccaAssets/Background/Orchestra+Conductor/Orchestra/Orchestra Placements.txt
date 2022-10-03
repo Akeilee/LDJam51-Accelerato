@@ -1,0 +1,5 @@
+Each file denotes key on key board - See OrchestraInstruction1, 2 & 3
+ i.e.- KeyANeutral - static PNG for Key A - used either when it is an 'active control key' or when not pressed py player
+     - KeyAShock   - used when not part of an 'active control key' scheme' and the corresponding key is pressed by the player in error
+
+Each KeyNeutral/KeyShock should be placed to it's corresponding spot on a qwerty keyboard (We'll make a background with obvious placement areas for them) 

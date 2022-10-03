@@ -1,0 +1,12 @@
+Contents
+-Orchestra+Conductor Folder 
+ - PNG files for Orchestra and Conductor static and animations
+
+-Background_WithStand
+ - Background PNG for the stage, with a stand with a qwerty coded grid for placing corresponding orchestra members (see OrchestraInstruction1, 2 & 3
+   in 'Orchestra+Conductor - Orchestra' Folder for correct placements)
+
+-Background Mockup
+ - Mock-up example of how the background should look once all the character PNGs (orchestra and Conductor) are placed
+   (I've placed letters in the 'background_WithStand' PNG, to highlight where each character should go, but if it's easier for me to place them and send you 
+    a PSD file then just let me know) 
