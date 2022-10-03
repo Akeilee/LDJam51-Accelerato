@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 public class RatPlayer : MonoBehaviour
 {
@@ -11,12 +11,16 @@ public class RatPlayer : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text controlsText;
     [SerializeField] private TMP_Text points;
+    [SerializeField] private GameObject loseScreen;
+    [SerializeField] private GameObject winScreen;
+
 
     [Header("Music")]
     [SerializeField] private AudioSource BGMAudioSource;
     [SerializeField] private AudioSource collisionAudioSource;
     [SerializeField] private AudioSource characterAudioSource;
     [SerializeField] private AudioClip[] BGMs;
+    [SerializeField] private AudioClip[] menuSounds;
 
     [Header("Collision SFX")]
     [SerializeField] private AudioClip cheeseSFX;
@@ -50,12 +54,14 @@ public class RatPlayer : MonoBehaviour
     private System.Random rand = new System.Random();
     private int previousRandomNumber = 0;
     private int maxKeySwitches = 6;
-    private float time = 0.0f;
+    private float timer = 0.0f;
     private float nextActionTime = 10.0f;
 
     private int cheesePoints = 5;
     private int musicPoints = 1;
     private int totalPoints = 0;
+
+    
 
 
     public KeyCode GetLeftKey() {return left;}
@@ -68,14 +74,19 @@ public class RatPlayer : MonoBehaviour
         UpdatePoints(totalPoints);
         startingSpeed = speed;
         startingJumpSpeed = jumpSpeed;
+        
+        loseScreen.SetActive(false);
+        winScreen.SetActive(false);
+        nextActionTime = 10.0f;
     }
 
     void Update()
     {
-        if (Time.time > nextActionTime)
+        timer += Time.deltaTime;
+        if (timer > nextActionTime)
         {
             KeySwitch();
-            nextActionTime = Time.time + 10.0f;
+            nextActionTime = timer + 10.0f;
         }
 
         FormatTime();
@@ -91,13 +102,7 @@ public class RatPlayer : MonoBehaviour
 
     private void FormatTime()
     {
-        time = Time.time;
-
-        int minutes = (int)(Time.time / 60);
-        int seconds = (int)(time % 60);
-        int totalTime = (minutes * 60) + seconds;
-
-        timerText.text = totalTime.ToString();
+        timerText.text = timer.ToString("N0");
     }
 
     private void KeySwitch()
@@ -285,22 +290,22 @@ public class RatPlayer : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Killzone") || collision.gameObject.CompareTag("Enemy"))
         {
-            ///////////// Lose screen
-            ///
+            Time.timeScale = 0;
+            loseScreen.SetActive(true);
+
             characterAudioSource.clip = ratHurtSFX;
             characterAudioSource.Play();
-
-            Debug.Log("You lose");
         }
 
         else if (collision.gameObject.CompareTag("FinishLine")) 
         {
+            Time.timeScale = 0;
+            winScreen.SetActive(true);
+
             characterAudioSource.clip = finishLineSFX;
             characterAudioSource.Play();
             BGMAudioSource.Stop();
             collisionAudioSource.Stop();
-
-            ///////END GAME
         }
     }
 
@@ -320,4 +325,34 @@ public class RatPlayer : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    public void RestartLevel()
+    {
+        StartCoroutine(ReturnToLevelStart());
+    }
+
+    public void MainMenu()
+    {
+        StartCoroutine(ReturnToMainMenu());
+    }
+
+    IEnumerator ReturnToMainMenu()
+    {
+        Time.timeScale = 1;
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Menu");
+    }
+    IEnumerator ReturnToLevelStart()
+    {
+        Time.timeScale = 1;
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Level_1");
+    }
+
+    public void PlayMenuSounds(int menuSound)
+    {
+        collisionAudioSource.clip = menuSounds[menuSound];
+        collisionAudioSource.Play();
+    }
+
 }
