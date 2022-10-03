@@ -13,7 +13,7 @@ public class RatPlayer : MonoBehaviour
     [SerializeField] private TMP_Text points;
     [SerializeField] private GameObject loseScreen;
     [SerializeField] private GameObject winScreen;
-
+    [SerializeField] private Points pointsTimeCalculation;
 
     [Header("Music")]
     [SerializeField] private AudioSource BGMAudioSource;
@@ -61,9 +61,13 @@ public class RatPlayer : MonoBehaviour
     private int musicPoints = 1;
     private int totalPoints = 0;
 
+    private int totalCheeseCollected = 0;
+    private int totalSheetsCollected = 0;
+
+    private Animator animator;
+    private Vector3 characterScale;
+
     
-
-
     public KeyCode GetLeftKey() {return left;}
     public KeyCode GetRightKey() {return right;}
     public KeyCode GetJumpKey() {return jump;}
@@ -71,8 +75,14 @@ public class RatPlayer : MonoBehaviour
 
     void Start()
     {
+        animator = this.GetComponent<Animator>();
+        characterScale = this.transform.localScale;
+
         Time.timeScale = 1;
         UpdatePoints(totalPoints);
+        pointsTimeCalculation.UpdateCheeseSmall(totalCheeseCollected);
+        pointsTimeCalculation.UpdateSheetsSmall(totalSheetsCollected);
+
         startingSpeed = speed;
         startingJumpSpeed = jumpSpeed;
         
@@ -99,11 +109,14 @@ public class RatPlayer : MonoBehaviour
     private void UpdatePoints(int point)
     {
         points.text = "Points: " + point.ToString();
+        pointsTimeCalculation.UpdateScoreSmall(point);
     }
 
     private void FormatTime()
     {
         timerText.text = timer.ToString("N0");
+        pointsTimeCalculation.UpdateTimeSmall((int)timer);
+        pointsTimeCalculation.UpdateTimeBig((int)timer);
     }
 
     private void KeySwitch()
@@ -206,13 +219,21 @@ public class RatPlayer : MonoBehaviour
     private void MovementHorizontal(KeyCode left, KeyCode right)
     {
         if (Input.GetKey(left))
+        {
             movementDirection = -1;
-        else if (Input.GetKey(right))
+            characterScale.x = -0.35f;
+        }
+        else if (Input.GetKey(right)) 
+        {
             movementDirection = 1;
+            characterScale.x = 0.35f;
+        }
         else
             movementDirection = 0;
 
+        this.transform.localScale = characterScale;
         rigidBody.velocity = new Vector2(speed * movementDirection, rigidBody.velocity.y);
+        animator.SetFloat("Speed", Mathf.Abs(movementDirection));
     }
 
     private void MovementJump(KeyCode jumpKey)
@@ -268,6 +289,9 @@ public class RatPlayer : MonoBehaviour
             totalPoints += musicPoints;
             UpdatePoints(totalPoints);
 
+            totalSheetsCollected += 1;
+            pointsTimeCalculation.UpdateSheetsSmall(totalSheetsCollected);
+
             collisionAudioSource.clip = sheetMusicSFX;
             collisionAudioSource.Play();
         }
@@ -277,6 +301,9 @@ public class RatPlayer : MonoBehaviour
             Destroy(collision.gameObject);
             totalPoints += cheesePoints;
             UpdatePoints(totalPoints);
+
+            totalCheeseCollected += 1;
+            pointsTimeCalculation.UpdateCheeseSmall(totalCheeseCollected);
 
             collisionAudioSource.clip = cheeseSFX;
             collisionAudioSource.Play();
@@ -302,6 +329,10 @@ public class RatPlayer : MonoBehaviour
         else if (collision.gameObject.CompareTag("FinishLine")) 
         {
             Time.timeScale = 0;
+            pointsTimeCalculation.UpdateScoreBig(totalPoints);
+            pointsTimeCalculation.UpdateCheeseBig(totalCheeseCollected);
+            pointsTimeCalculation.UpdateSheetsBig(totalSheetsCollected);
+
             winScreen.SetActive(true);
 
             characterAudioSource.clip = finishLineSFX;
