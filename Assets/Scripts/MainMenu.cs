@@ -38,7 +38,7 @@ public class MainMenu : MonoBehaviour
     IEnumerator InteractableWait() 
     {
         yield return new WaitForSeconds(1);
-        antiHoverPanel.SetActive(false);
+        //antiHoverPanel.SetActive(false);
     }
 
     public void PlayLevel() 

@@ -13,6 +13,7 @@ public class RatPlayer : MonoBehaviour
     [SerializeField] private TMP_Text points;
     [SerializeField] private GameObject loseScreen;
     [SerializeField] private GameObject winScreen;
+    [SerializeField] private GameObject pauseScreen;
     [SerializeField] private Points pointsTimeCalculation;
 
     [Header("Music")]
@@ -68,7 +69,6 @@ public class RatPlayer : MonoBehaviour
 
     private Animator animator;
     private Vector3 characterScale;
-
     
     public KeyCode GetLeftKey() {return left;}
     public KeyCode GetRightKey() {return right;}
@@ -90,6 +90,7 @@ public class RatPlayer : MonoBehaviour
         
         loseScreen.SetActive(false);
         winScreen.SetActive(false);
+        pauseScreen.SetActive(false);
         nextActionTime = 10.0f;
     }
 
@@ -111,6 +112,11 @@ public class RatPlayer : MonoBehaviour
             animator.SetBool("isJumping", true);
         else if (!isJumping)
             animator.SetBool("isJumping", false);
+
+        if (Input.GetKey(KeyCode.Escape)) 
+        {
+            OpenPauseMenu();
+        }
     }
 
     private void UpdatePoints(int point)
@@ -257,7 +263,6 @@ public class RatPlayer : MonoBehaviour
     }
 
 
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Crumble") || collision.gameObject.CompareTag("Untagged"))
@@ -388,6 +393,24 @@ public class RatPlayer : MonoBehaviour
     public void MainMenu()
     {
         StartCoroutine(ReturnToMainMenu());
+    }
+
+    private void OpenPauseMenu() 
+    {
+        Time.timeScale = 0;
+        pauseScreen.SetActive(true);
+        BGMAudioSource.Pause();
+        collisionAudioSource.Pause();
+        characterAudioSource.Pause();
+    }
+
+    public void ReturnToGame() 
+    {
+        Time.timeScale = 1;
+        pauseScreen.SetActive(false);
+        BGMAudioSource.UnPause();
+        collisionAudioSource.UnPause();
+        characterAudioSource.UnPause();
     }
 
     IEnumerator ReturnToMainMenu()
