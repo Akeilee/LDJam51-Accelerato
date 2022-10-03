@@ -24,8 +24,6 @@ public class Hazards : MonoBehaviour
 
     private void Update()
     {
-        animator.speed = speed;////////////////////////////DELETE
-
         if (player.transform.position.x >= this.transform.position.x - proximity &&
             player.transform.position.x <= this.transform.position.x + proximity)
                 audioSource.enabled = true;

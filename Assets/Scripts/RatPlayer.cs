@@ -71,6 +71,7 @@ public class RatPlayer : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         UpdatePoints(totalPoints);
         startingSpeed = speed;
         startingJumpSpeed = jumpSpeed;
@@ -295,6 +296,7 @@ public class RatPlayer : MonoBehaviour
 
             characterAudioSource.clip = ratHurtSFX;
             characterAudioSource.Play();
+            collisionAudioSource.Stop();
         }
 
         else if (collision.gameObject.CompareTag("FinishLine")) 
@@ -344,15 +346,15 @@ public class RatPlayer : MonoBehaviour
 
     IEnumerator ReturnToMainMenu()
     {
-        Time.timeScale = 1;
-        yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Menu");
+        yield return new WaitForSeconds(1);
+        Time.timeScale = 1;
     }
     IEnumerator ReturnToLevelStart()
     {
-        Time.timeScale = 1;
-        yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Level_1");
+        yield return new WaitForSeconds(1);
+        Time.timeScale = 1;
     }
 
     public void PlayMenuSounds(int menuSound)
