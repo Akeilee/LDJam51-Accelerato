@@ -325,6 +325,10 @@ public class RatPlayer : MonoBehaviour
         else if (collision.gameObject.CompareTag("Killzone") || collision.gameObject.CompareTag("Enemy"))
         {
             Time.timeScale = 0;
+            pointsTimeCalculation.UpdateScoreBig(totalPoints);
+            pointsTimeCalculation.UpdateCheeseBig(totalCheeseCollected);
+            pointsTimeCalculation.UpdateSheetsBig(totalSheetsCollected);
+
             loseScreen.SetActive(true);
 
             characterAudioSource.clip = ratHurtSFX;

@@ -17,6 +17,10 @@ public class Points : MonoBehaviour
     [SerializeField] private Image middleBigScore;
     [SerializeField] private Image rightBigScore;
 
+    [SerializeField] private Image leftLoseScore;
+    [SerializeField] private Image middleLoseScore;
+    [SerializeField] private Image rightLoseScore;
+
     [Header("Time")]
     [SerializeField] private Image leftTime;
     [SerializeField] private Image middleTime;
@@ -26,6 +30,10 @@ public class Points : MonoBehaviour
     [SerializeField] private Image middleBigTime;
     [SerializeField] private Image rightBigTime;
 
+    [SerializeField] private Image leftLoseTime;
+    [SerializeField] private Image middleLoseTime;
+    [SerializeField] private Image rightLoseTime;
+
     [Header("Cheese")]
     [SerializeField] private Image leftCheese;
     [SerializeField] private Image middleCheese;
@@ -33,12 +41,18 @@ public class Points : MonoBehaviour
     [SerializeField] private Image leftBigCheese;
     [SerializeField] private Image middleBigCheese;
 
+    [SerializeField] private Image leftLoseCheese;
+    [SerializeField] private Image middleLoseCheese;
+
     [Header("Sheets")]
     [SerializeField] private Image leftSheet;
     [SerializeField] private Image middleSheet;
 
     [SerializeField] private Image leftBigSheet;
     [SerializeField] private Image middleBigSheet;
+
+    [SerializeField] private Image leftLoseSheet;
+    [SerializeField] private Image middleLoseSheet;
 
 
     private decimal pointsTruncate;
@@ -98,6 +112,7 @@ public class Points : MonoBehaviour
     public void UpdateScoreBig(int points) 
     {
         UpdateScoreTime(points, leftBigScore, middleBigScore, rightBigScore);
+        UpdateScoreTime(points, leftLoseScore, middleLoseScore, rightLoseScore);
     }
 
     public void UpdateScoreSmall(int points) 
@@ -108,6 +123,7 @@ public class Points : MonoBehaviour
     public void UpdateTimeBig(int time)
     {
         UpdateScoreTime(time, leftBigTime, middleBigTime, rightBigTime);
+        UpdateScoreTime(time, leftLoseTime, middleLoseTime, rightLoseTime);
     }
 
     public void UpdateTimeSmall(int time)
@@ -118,6 +134,7 @@ public class Points : MonoBehaviour
     public void UpdateCheeseBig(int cheese)
     {
         UpdateScoreTime(cheese, leftBigCheese, middleBigCheese, null);
+        UpdateScoreTime(cheese, leftLoseCheese, middleLoseCheese, null);
     }
 
     public void UpdateCheeseSmall(int cheese)
@@ -128,6 +145,7 @@ public class Points : MonoBehaviour
     public void UpdateSheetsBig(int sheets)
     {
         UpdateScoreTime(sheets, leftBigSheet, middleBigSheet, null);
+        UpdateScoreTime(sheets, leftLoseSheet, middleLoseSheet, null);
     }
 
     public void UpdateSheetsSmall(int sheets)
