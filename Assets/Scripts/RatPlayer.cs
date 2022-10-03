@@ -315,8 +315,14 @@ public class RatPlayer : MonoBehaviour
         {
             isGrounded = false;
 
-            if (collision.gameObject.CompareTag("Floor"))
+            if (collision.gameObject.CompareTag("Floor")) 
+            {
                 isOnCrumble = false;
+
+                if (rigidBody.velocity.y <= 0.05f)
+                    isGrounded = true;
+            }
+
         }
         else if (collision.gameObject.CompareTag("Strings"))
         {
