@@ -62,7 +62,7 @@ public class RatPlayer : MonoBehaviour
 
     private int cheesePoints = 5;
     private int musicPoints = 1;
-    private int totalPoints = 0;
+    public int totalPoints = 0;
 
     private int totalCheeseCollected = 0;
     private int totalSheetsCollected = 0;
@@ -77,13 +77,21 @@ public class RatPlayer : MonoBehaviour
 
     void Start()
     {
+        // reset
+        totalPoints = 0;
+        timer = 0;
+        totalCheeseCollected = 0;
+        totalSheetsCollected = 0;
+
         animator = this.GetComponent<Animator>();
         characterScale = this.transform.localScale;
 
         Time.timeScale = 1;
         UpdatePoints(totalPoints);
         pointsTimeCalculation.UpdateCheeseSmall(totalCheeseCollected);
+        pointsTimeCalculation.UpdateCheeseBig(totalCheeseCollected);
         pointsTimeCalculation.UpdateSheetsSmall(totalSheetsCollected);
+        pointsTimeCalculation.UpdateSheetsBig(totalSheetsCollected);
 
         startingSpeed = speed;
         startingJumpSpeed = jumpSpeed;
@@ -123,6 +131,7 @@ public class RatPlayer : MonoBehaviour
     {
         points.text = "Points: " + point.ToString();
         pointsTimeCalculation.UpdateScoreSmall(point);
+        pointsTimeCalculation.UpdateScoreBig(point);
     }
 
     private void FormatTime()
@@ -303,6 +312,7 @@ public class RatPlayer : MonoBehaviour
 
             totalSheetsCollected += 1;
             pointsTimeCalculation.UpdateSheetsSmall(totalSheetsCollected);
+            pointsTimeCalculation.UpdateSheetsBig(totalSheetsCollected);
 
             collisionAudioSource.clip = sheetMusicSFX;
             collisionAudioSource.Play();
@@ -316,6 +326,7 @@ public class RatPlayer : MonoBehaviour
 
             totalCheeseCollected += 1;
             pointsTimeCalculation.UpdateCheeseSmall(totalCheeseCollected);
+            pointsTimeCalculation.UpdateCheeseBig(totalCheeseCollected);
 
             collisionAudioSource.clip = cheeseSFX;
             collisionAudioSource.Play();
@@ -332,10 +343,6 @@ public class RatPlayer : MonoBehaviour
         else if (collision.gameObject.CompareTag("Killzone") || collision.gameObject.CompareTag("Enemy"))
         {
             Time.timeScale = 0;
-            pointsTimeCalculation.UpdateScoreBig(totalPoints);
-            pointsTimeCalculation.UpdateCheeseBig(totalCheeseCollected);
-            pointsTimeCalculation.UpdateSheetsBig(totalSheetsCollected);
-
             loseScreen.SetActive(true);
 
             BGMAudioSource.Stop();
@@ -348,10 +355,6 @@ public class RatPlayer : MonoBehaviour
         else if (collision.gameObject.CompareTag("FinishLine")) 
         {
             Time.timeScale = 0;
-            pointsTimeCalculation.UpdateScoreBig(totalPoints);
-            pointsTimeCalculation.UpdateCheeseBig(totalCheeseCollected);
-            pointsTimeCalculation.UpdateSheetsBig(totalSheetsCollected);
-
             winScreen.SetActive(true);
 
             characterAudioSource.clip = finishLineSFX;
